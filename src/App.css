@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.UserSection {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 55px;
+  padding-bottom: 60px;
+}
