@@ -1,51 +1,40 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css"
+
+//React router dom
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //componentes
 import Header from "./Components/Header/Header";
 import NavBar from "./Components/NavBar/NavBar";
-import CardUser from "./Components/CardUser/CardUser";
+import CardList from "./Components/CardList/CardList";
 
+//Pages
+import Home from "./pages/Home/Home"
+import About from "./pages/About/About"
+import Contact from "./pages/Contact/Contact"
+import UserDetail from "./pages/UserDetail/UserDetail"
 
-
-class App extends Component {
-  render() {
-    return(
-      <div className="App">
+const App = () => {
+    return (
+      <Router>
+        <div className="App">  
+        
         <NavBar />
-        <Header />
-        <div className="UserSection">
-          <CardUser 
-          modelo= "Mopho x4" 
-          precio={450000} 
-          img= "https://i.pinimg.com/564x/7c/3e/86/7c3e86770f892ae9a868c6d4989303b8.jpg"
-          backgroundColor= "whiteSmoke"
-          />
-          <CardUser 
-          modelo= "Moog Mother 32" 
-          precio={438000} 
-          img= "https://i.pinimg.com/564x/4e/35/4f/4e354f7f4d863f9087cc00b95fa00bc4.jpg"
-          backgroundColor= "whiteSmoke"
-          />
-          <CardUser 
-          modelo= "Korg Ms20 mini" 
-          precio= {350000} 
-          img= "https://i.pinimg.com/564x/6a/59/a4/6a59a4c5067fecec36beb23f347433e2.jpg"
-          backgroundColor= "whiteSmoke"
-          />
-          <CardUser 
-          modelo= "Arturia Minibrute 2s" 
-          precio={310000} 
-          img= "https://i.pinimg.com/564x/a3/38/59/a33859fbe7a78a702990d5b05f9f442b.jpg"
-          backgroundColor= "whiteSmoke"
-          />
-          
-        </div>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/user-detail/:id" element={<UserDetail />} />
+            </Routes>
 
-      </div>
-      
-    )
-  }
+            <Header />
+
+            <CardList />
+
+        </div>
+    </Router>
+    );
 }
 
 export default App;

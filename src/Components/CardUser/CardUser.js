@@ -6,20 +6,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const CardUser = ({img, modelo, precio, backgroundColor}) => {
+const CardUser = ({data}) => {
     return (
-    <Card sx={{ maxWidth: 345 , background: backgroundColor}}>
+    <Card sx={{ maxWidth: 345 }}>
         <CardMedia
             sx={{ height: 140 }}
-            image={img}
+            
             title="green iguana"
     />
     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-            {modelo}
+            {data.modelo}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-            {precio}
+            {data.id}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+            {data.precio}
         </Typography>
     </CardContent>
     <CardActions>
