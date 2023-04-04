@@ -8,9 +8,9 @@ const NavBar = () => {
     return (
     <nav className="Navigation"> 
         <ul className="List-ul">
-            <li>
+            <Link className="Link" to= "/">
                 <h1 style={{color: "white" }} > Sintetizadores online</h1>
-            </li>
+            </Link>
             <Link className="Link" to= "/">
                 Home
             </Link>

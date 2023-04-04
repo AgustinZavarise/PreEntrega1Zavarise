@@ -24,8 +24,9 @@ const CardList = () => {
                 return (
 
                     <div key={user.id}>
-                        <Link to="/user-detail/${user.id}">
+                        <Link className="Link" to="/user-detail/">
                             <CardUser data={user} />
+                            
                         </Link>
                     </div>
                 );

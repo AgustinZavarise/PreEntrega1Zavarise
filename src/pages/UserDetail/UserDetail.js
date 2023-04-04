@@ -6,12 +6,13 @@ import {useParams} from "react-router-dom";
 
 
 const UserDetail = () => {
-    const [ user, setUser ] =useState ([]);
-    
     let{ id } = useParams();
+    const [ user, setUser ] =useState ([id]);
+    
+    
 
     useEffect( () => {
-        axios("https://raw.githubusercontent.com/luisemiliopizzolanti/json_test/main/json_test.json/${id}").then((res) =>
+        axios("https://raw.githubusercontent.com/luisemiliopizzolanti/json_test/main/json_test.json/").then((res) =>
         setUser (res.data)
         ); 
     }, [id]);

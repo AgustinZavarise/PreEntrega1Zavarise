@@ -6,10 +6,19 @@ const Header = () => {
     return (
     <div className='Header'>
         <img src={img}alt= "logo" />
+        <div>
         <h3> Welcome to the shop!</h3>
-        <h4>  SALE 15% off  </h4>
+        
     </div>
+    <div>
+    <h4>  SALE 15% off  </h4>
+        
+    </div>
+    
+    </div>
+    
     )
+    
 }
 
 export default Header;

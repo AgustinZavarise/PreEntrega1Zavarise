@@ -11,8 +11,8 @@ const CardUser = ({data}) => {
     <Card sx={{ maxWidth: 345 }}>
         <CardMedia
             sx={{ height: 140 }}
-            
-            title="green iguana"
+            image={data.img}
+            title="Sintetizadores"
     />
     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
