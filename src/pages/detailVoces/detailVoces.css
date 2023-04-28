@@ -1,0 +1,10 @@
+.detailVoces{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    justify-content: center;
+    gap : 40px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}

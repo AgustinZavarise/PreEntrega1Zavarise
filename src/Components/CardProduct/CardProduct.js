@@ -6,23 +6,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const CardUser = ({data}) => {
+const CardProduct = ({instrumentosData}) => {
     return (
     <Card sx={{ maxWidth: 345 }}>
         <CardMedia
             sx={{ height: 140 }}
-            image={data.img}
+            image={instrumentosData.img}
             title="Sintetizadores"
     />
     <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-            {data.modelo}
+            {instrumentosData.instrumento}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-            {data.id}
+            {instrumentosData.voices}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-            {data.precio}
+            {instrumentosData.precio}
         </Typography>
     </CardContent>
     <CardActions>
@@ -32,4 +32,4 @@ const CardUser = ({data}) => {
     </Card>
     );
 }
-export default CardUser;
+export default CardProduct;

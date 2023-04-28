@@ -1,38 +1,67 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import CardUser from "../CardUser/CardUser";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./CardListComponent.css"
+import "./CardListComponent.css";
 
 
+//Components
 
+import CardProduct from "../CardProduct/CardProduct";
+import Spinner from "../Spinner/Spinner";
 
+//Firebase
+import { collection, query, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
 const CardList = () => {
 
-    const [ users, setUsers ] = useState ([]);
+    const [instrumentosData, setInstrumentosData] = useState ([]);
 
-    useEffect( () => {
-        axios("https://raw.githubusercontent.com/luisemiliopizzolanti/json_test/main/json_test.json").then((res) => 
-        setUsers (res.data)
-        ); 
-    }, []);
+    const [isLoading, setIsLoading] = useState(true);
 
+
+    useEffect (() =>{
+        const getInstrumentos = async() => {
+            const q = query (collection(db, "Instrumentos"));
+            const querySnapshot = await getDocs(q);
+            const docs= [];
+            querySnapshot.forEach((doc) => {
+            docs.push({ ...doc.data(), id: doc.id });
+            });
+            setInstrumentosData(docs)
+        };
+        getInstrumentos();
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+    },[]);
+    
     return (
-        <div className="Cards-Lists">
-            {users.map((user) => {
-                return (
-
-                    <div key={user.id}>
-                        <Link className="Link" to="/user-detail/">
-                            <CardUser data={user} />
-                            
-                        </Link>
-                    </div>
-                );
-            })};
+    <>
+        {isLoading ? (
+        <div className="Spinner">
+            <Spinner />
         </div>
+    ) : (
+        <div className="CardListContainer">
+            {instrumentosData.map((data) => {
+            return (     
+            <Link
+                to={`details/${data.id}`}
+                style={{ textDecoration: "none" }}
+                key={data.id}
+                >
+                <CardProduct instrumentosData={data} />
+            </Link>
+            );
+            })}
+        </div>
+        )}
+    </>
     );
 };
 
+
+
 export default CardList;
+

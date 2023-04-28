@@ -1,23 +1,23 @@
 import React from 'react';
 import "./Header.css";
 import img from "./bannersinte.jpg";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-    return (
-    <div className='Header'>
-        <img src={img}alt= "logo" />
-        <div>
-        <h3> Welcome to the shop!</h3>
-        
-    </div>
-    <div>
-    <h4>  SALE 15% off  </h4>
-        
-    </div>
     
-    </div>
+    	return (
+            <div className='header'>
+
+                
+                <Link to='/'>
+                    <img src={img} alt='logo' />
+                </Link>
+                
+                
+            </div>
+        );
     
-    )
+    
     
 }
 
